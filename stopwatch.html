@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+<body>
+    <h3 id="time"></h3>
+    <button id="btn">Stop</button>
+    
+
+    <script>
+        function get()
+        {
+            let date = new Date();
+            document.getElementById("time").innerHTML = date;
+        }
+        let inter = setInterval(get,1000);
+
+        btn=addEventListener("click" ,function(){
+            clearInterval(inter);
+        })
+    </script>
+</body>
+</html>

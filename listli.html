@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a simple task scheduler or to-do list application. In this application, you want to display a list of tasks to the user</title>
+</head>
+<body>
+    <ul id="list"></ul>
+
+    <script>
+        let a = ["mango","apple","Grapes","coconut","banana","orange"];
+        let listitem = document.getElementById("list");
+
+        for(let i=0;i<a.length;i++){
+            let li = document.createElement("li");
+            li.textContent = a[i];
+            listitem.appendChild(li)
+        }
+    </script>
+</body>
+</html>
