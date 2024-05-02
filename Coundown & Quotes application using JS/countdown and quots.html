@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coundown & Quotes application using JS</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    color: #666;
+}
+</style>
+<body>
+    <div class="main">
+        <h2 id="para"></h2>
+        <p id="Quotes"></p>
+    </div>
+</body>
+</html>
+<script>
+    setInterval(()=>{
+        let data= new Date();
+        document.getElementById("para").innerHTML = data;
+    
+    })
+    let Quote = ["Believe you can and you're halfway there. - Theodore Roosevelt",
+  "The only way to do great work is to love what you do. - Steve Jobs",
+  "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+  "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
+  "You miss 100% of the shots you don't take. - Wayne Gretzky"]
+
+  let index=0;
+  setInterval(()=>{
+    index=(index+1) % Quote.length;
+    document.getElementById("Quotes").innerHTML=Quote[index];
+    },1000);
+
+</script>
