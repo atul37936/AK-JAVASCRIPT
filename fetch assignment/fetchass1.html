@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch assignment</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    function fetchdata(){
+        fetch("https://fakestoreapi.com/products")
+        .then((res)=>res.json())
+        .then((data)=>cardList(data)) 
+        .catch((err)=>console.log(err))
+    }
+    fetchdata()
+
+    function singleCard(id, title, price, description,category,image){
+        let card = `
+        <div>
+            <h1> id : ${id} </h1>
+            <h3>title: ${title}</h3>
+            <p>price: ${price}</p>
+            <p> description : ${description}</p>
+            <p> category :${category}
+            <img src=${image} alt="image loading" height="300" width="300">
+        </div>
+        `
+        return card
+    }
+    function cardList(productData){
+        // console.log(productData)
+        let store = productData.map((el)=>singleCard(el.id, el.title, el.price, el.description,el.category,el.image))
+        document.querySelector("#container").innerHTML = store.join("")
+    }
+</script>
