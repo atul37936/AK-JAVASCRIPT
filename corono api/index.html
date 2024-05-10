@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORONO API</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+        }
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 100px;background-color: rgb(247, 245, 245);
+            background-color: yellowgreen;
+        }
+        .cardlist{
+            border: 1px solid rgb(209, 201, 201);
+            height: 160px;
+            font-size: large;
+            padding: 2px;
+            width: 300px;
+        }
+        .cardlist:hover{
+            background-color: rgb(131, 89, 89);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    </div>
+</body>
+
+<script>
+    function fetchdata(){
+        fetch("https://api.rootnet.in/covid19-in/stats/latest")
+        .then((res)=>res.json())    
+        .then((data)=>cardList(data.data.regional)) 
+        .catch((err)=>console.log(err))
+    }
+    fetchdata()
+
+    function singleCard(loc, confirmedCasesIndian, confirmedCasesForeign, discharged,deaths,totalConfirmed){
+        let card = `
+        <div class="cardlist">
+            <h3>location:${loc}</h3>
+            <p>confirmedCasesIndian:${confirmedCasesIndian}</p>
+            <p>confirmedCasesForeign:${confirmedCasesForeign}</p>
+            <p>discharged:${discharged}</p>
+            <p>deaths:${deaths}</p>
+            <p>totalConfirmed:${totalConfirmed}</p>
+           
+        </div>
+        `
+        return card
+    }
+    
+    function cardList(productData){
+        // console.log(productData)
+        let store = productData.map((el)=>singleCard(el.loc, el.confirmedCasesIndian, el.confirmedCasesForeign, el.discharged,el.deaths,el.totalConfirmed))
+        document.querySelector("#container").innerHTML = store.join("")
+    }
+</script>
+</html>
