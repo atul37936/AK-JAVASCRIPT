@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <style>
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    function fetchdata(){
+        fetch("https://reqres.in/api/users?page=2")
+        .then((res)=>res.json())
+        .then((data)=>cardList(data.data)) 
+        .catch((err)=>console.log(err))
+    }
+    fetchdata()
+
+    function singleCard(id, email, first_name, last_name,avatar){
+        let card = `
+        <div>
+            <h3>id:${id}</h3>
+            <p>email:${email}</p>
+            <p>Name : ${first_name} ${last_name}</p>
+            <img src=${avatar} alt="image loading" height="300" width="300">
+        </div>
+        `
+        return card
+    }
+    
+    function cardList(productData){
+        // console.log(productData)
+        let store = productData.map((el)=>singleCard(el.id, el.email, el.first_name, el.last_name,el.avatar))
+        document.querySelector("#container").innerHTML = store.join("")
+    }
+</script>
