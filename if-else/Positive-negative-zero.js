@@ -77,13 +77,8 @@ rl.question('Enter a number: ', (input) => {
 
 
 // Easy Problems
-
-// Even or Odd: Check if a number is even or odd
-// Positive/Negative: Check if a number is positive, negative, or zero
 // Largest of Two: Find the largest of two numbers
-// Divisible by 5: Check if a number is divisible by 5
 // Vowel or Consonant: Check if a character is a vowel or consonant
-// Leap Year: Check if a year is a leap year
 // Pass/Fail: Check if marks are above passing grade (40%)
 // Age Group: Categorize age into child (<13), teen (13-19), adult (20-59), senior (60+)
 
