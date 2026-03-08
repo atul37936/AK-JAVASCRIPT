@@ -1,3 +1,5 @@
+// Armstrong number – Check if a number equals sum of cubes of its digits (e.g., 153).
+
 let num = parseInt(process.argv[2])
 let temp = num
 let sum =  0
@@ -14,3 +16,4 @@ if (sum === num) {
 }
 
 // a number that is the sum of its own digits, each raised to the power of the number of digits in the number itself.
+
